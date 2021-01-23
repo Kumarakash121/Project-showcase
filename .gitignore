@@ -1,52 +1,100 @@
-# Prerequisites
-*.d
+//PARKING MANAGEMENT SYSTEM
+#include <stdio.h>
+#include<stdlib.h>
+//#include <conio.h>
+int menu();
+void bus();
+void cycle();
+void rickshaw();
+void deletef();
+void showDetail();
+int nor=0,nob=0,noc=0,amount=0,count=0;
+int main() {
+	//clrscr();
+	switch(menu())
+	{
+	    case 1:
+	         bus();
+	         break;
+	    
+	    case 2:
+	         cycle();
+	         break;
+	         
+	    case 3:
+	         rickshaw();
+	         break;
+	         
+	    
+	    case 4:
+	         showDetail();
+	         break;
+	
+	    
+	    case 5:
+	         deletef();
+	         break;
+	         
+	    case 6:
+	         exit(0);
+	    default:
+	        printf("\n INVALID CHOICE");
+	}
+	//getch();
+	return 0;
+}
+int menu()
+{
+    int op;
+    printf("\n 1. Enter Bus");
+    printf("\n 2.Enter Cycle");
+    printf("\n 3.Enter Rickshaw");
+    printf("\n 4.Show status");
+    printf("\n 5.Delete Data");
+    printf("\n 6.Exit");
+    printf("\n Enter your choice \n");
+    scanf("%d",&op);
+    return(op);
+}
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+void showDetail()
+{
+    printf("\n Number of Bus-> %d",nob);
+    printf("\n Number of cycle-> %d",noc);
+    printf("\n Number of Rickshaw-> %d",nor);
+    printf("\n Total Number of vehicle-> %d",count);
+    printf("\n Net Amount-> %d",amount);
+    
+}
 
-# Linker output
-*.ilk
-*.map
-*.exp
+void rickshaw()
+{
+    printf("\n Entry Successfull");
+    nor++;
+    amount =amount+50;
+    count++;
+}
 
-# Precompiled Headers
-*.gch
-*.pch
+void cycle()
+{
+    printf("\n Entry Successfull");
+    noc++;
+    amount =amount+20;
+    count++;
+}
+void bus()
+{
+    printf("\n Entry Successfull");
+    nob++;
+    amount =amount+100;
+    count++;
+}
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+void deletef()
+{
+    
+    nor=nob=noc=0;
+    amount =0;
+    count=0;
+    printf("\n Data Reset For new day ");
+}
